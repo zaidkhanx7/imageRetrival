@@ -1,4 +1,5 @@
-import jsonexport from "./csvtoJsonImages.js"
+import jsonexport from "./csvtoJsonImages.js";
+import synonims from "./synonims.js";
 const sayHello = () => {
     /*eslint-disable no-console */
     console.log("Allo! We are all set!");

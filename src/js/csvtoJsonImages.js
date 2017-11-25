@@ -1,4 +1,4 @@
-let data = require('dsv-loader!./image_tags.csv');
+let data = require('dsv-loader!../csvFiles/image_tags.csv');
 import _ from "lodash";
 let csvtoJson=()=>{
     _.forEach(data, function(Obj){

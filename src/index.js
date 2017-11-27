@@ -1,5 +1,3 @@
-import jsonexport from "./js/csvtoJsonImages.js";
-import synonims from "./js/synonims.js";
 import OnSearch from "./js/OnSearch.js";
 
 const sayHello = () => {
@@ -10,5 +8,5 @@ const sayHello = () => {
 
 sayHello();
 
-console.log("json",jsonexport);
+
 

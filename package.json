@@ -32,6 +32,7 @@
     "webpack-dev-server": "^2.4.2"
   },
   "dependencies": {
-    "dsv-loader": "^2.0.0"
+    "dsv-loader": "^2.0.0",
+    "leven": "^2.1.0"
   }
 }

@@ -77,17 +77,28 @@ let comparison=(stringArr)=>{
 
 let keyWordSearch=(Arr)=>{
     let imageRenderer=document.getElementById("imageRenderer");
-    _.forEach(Arr,function(value){
-        _.forEach(jsonexport,function(mainObj){
-            let val=value.imageName;
-            if(mainObj[val]==="1"){
-                console.log("inside loop");
-                var img = new Image();
-                img.src = `${window.location}/src/images/${mainObj.imagesNames}.png`;
-                img.setAttribute("class", "images");
-                imageRenderer.appendChild(img);
-            }
-        });
+    imageRenderer.innerHTML=" ";
+    _.forEach(jsonexport,function(mainObj){
+        let match=0;
+    _.forEach(Arr,function(value,index,arr){
+        let val=value.imageName;
+        if(mainObj[val]==="1") {
+           match=match+=1;
+           if(match === arr.length){
+               console.log("mainObj", mainObj)
+               console.log("inside loop");
+               let img = new Image();
+               let span=document.createElement('div');
+               span.innerHTML=mainObj.imagesNames;
+               img.src = `${window.location}/src/images/${mainObj.imagesNames}.png`;
+               img.name="text1"
+               span.setAttribute("class", "imagesdes");
+               img.setAttribute("class", "images");
+               imageRenderer.appendChild(span);
+               span.appendChild(img);
+           }
+        }
+    });
     });
 }
 

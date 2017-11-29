@@ -64,10 +64,11 @@ let comparison=(stringArr)=>{
 
             });
         });
-        comparisonArr=comparisonArr.sort(function(a,b){
-            return a.leven > b.leven ;
-        });
-        console.log(comparisonArr);
+        if(comparisonArr.length > 1){
+            comparisonArr=comparisonArr.sort(function(a,b){
+                return a.leven > b.leven ;
+            });
+        }
         return comparisonArr;
     }else{
         alert("Please enter valid input ");
@@ -75,20 +76,26 @@ let comparison=(stringArr)=>{
 }
 
 let keyWordSearch=(Arr)=>{
+    let imageRenderer=document.getElementById("imageRenderer");
     _.forEach(Arr,function(value){
         _.forEach(jsonexport,function(mainObj){
+            let val=value.imageName;
+            if(mainObj[val]==="1"){
+                console.log("inside loop");
+                var img = new Image();
+                img.src = `${window.location}/src/images/${mainObj.imagesNames}.png`;
+                img.setAttribute("class", "images");
+                imageRenderer.appendChild(img);
+            }
         });
     });
 }
 
 
 let imageRender=(Arr)=>{
-    let imageRenderer=document.getElementById("imageRenderer");
+
     Arr.forEach(function(value){
-        var img = new Image();
-        img.src = "../images/"+value.imageFileName;
-        img.setAttribute("class", "images");
-        imageRenderer.appendChild(img);
+
     });
 }
 

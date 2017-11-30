@@ -4,7 +4,9 @@ const leven = require('leven');
 const markup = `
   <div class="card">
         <input type="text" placeholder="Enter the text to be searched "  id="searchbox"/>
-        <button onclick="clicked()" class="searchbutton">search</button>
+        <button onclick="clicked()" class="searchbutton" id="idSearch">Text Search</button>
+        <button onclick="imageSubmitted()" class="invisible" id="imgSearchs"> submit Image</button>
+        <button onclick="imageclicked()" class="searchbutton" style="margin-left: 6px;" id="imgsearch">Image Search</button>
         <div id="imageRenderer"> 
 	</div>
     </div>
@@ -19,6 +21,24 @@ window.clicked=()=>{
     searchinputvalue=UnderStandingInput(searchinputvalue);
     comparisonInput=comparison(searchinputvalue|| '');
     keyWordSearch(comparisonInput);
+    resetData();
+}
+window.imageclicked=()=>{
+    let searchinput= document.getElementById("searchbox");
+    let inputSearch= document.getElementById("idSearch");
+    let imgSearch= document.getElementById("imgSearchs");
+    let imgsearch= document.getElementById("imgsearch");
+    inputSearch.style.display = 'none';
+    searchinput.setAttribute("type","file");
+    searchinput.setAttribute("name","pic");
+    searchinput.setAttribute("accept","image");
+    imgSearch.setAttribute("class","visible");
+    imgsearch.setAttribute("class","invisible");
+    idSearch.AddEventListener()
+    console.log("image Clicked!!!!!!!!!!!!!");
+}
+window.imageSubmitted=()=>{
+    console.log("image Submitted !!!");
 }
 
 
@@ -116,3 +136,5 @@ let resetData=()=>{
     })
 
 }
+
+

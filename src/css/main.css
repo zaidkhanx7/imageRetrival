@@ -35,7 +35,8 @@
     background-repeat: no-repeat;
     padding: 12px 20px 12px 40px;
 }
-.searchbutton{
+.searchbutton,
+.visible{
     text-decoration:none;
     text-align:center;
     padding:11px 32px;
@@ -60,4 +61,15 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+.invisible{
+    opacity:0;
+    position:absolute;
+}
+
+.visible{
+    opacity: 1;
+    position: relative;
+    background: tomato;
+    border: 1px solid tomato;
 }

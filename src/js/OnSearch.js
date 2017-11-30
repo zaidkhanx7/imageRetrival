@@ -78,36 +78,41 @@ let comparison=(stringArr)=>{
 let keyWordSearch=(Arr)=>{
     let imageRenderer=document.getElementById("imageRenderer");
     imageRenderer.innerHTML=" ";
+    for(let i =0; i<=3;i++){
+        imageRender(Arr,i);
+    }
+}
+
+
+let imageRender=(Arr,i)=>{
     _.forEach(jsonexport,function(mainObj){
-        let match=0;
-    _.forEach(Arr,function(value,index,arr){
-        let val=value.imageName;
-        if(mainObj[val]==="1") {
-           match=match+=1;
-           if(match === arr.length){
-               console.log("mainObj", mainObj)
-               console.log("inside loop");
-               let img = new Image();
-               let span=document.createElement('div');
-               span.innerHTML=mainObj.imagesNames;
-               img.src = `${window.location}/src/images/${mainObj.imagesNames}.png`;
-               img.name="text1"
-               span.setAttribute("class", "imagesdes");
-               img.setAttribute("class", "images");
-               imageRenderer.appendChild(span);
-               span.appendChild(img);
-           }
-        }
-    });
-    });
-}
-
-
-let imageRender=(Arr)=>{
-
-    Arr.forEach(function(value){
-
+        let match=i;
+        _.forEach(Arr,function(value,index,arr){
+            let val=value.imageName;
+            if(mainObj[val]==="1") {
+                match=match+=1;
+                if(match === arr.length && mainObj.appended !== true){
+                    console.log("mainObj", mainObj)
+                    console.log("inside loop");
+                    mainObj.appended=true;
+                    let img = new Image();
+                    let span=document.createElement('div');
+                    span.innerHTML=mainObj.imagesNames;
+                    img.src = `${window.location}/src/images/${mainObj.imagesNames}.png`;
+                    img.name="text1"
+                    span.setAttribute("class", "imagesdes");
+                    img.setAttribute("class", "images");
+                    imageRenderer.appendChild(span);
+                    span.appendChild(img);
+                }
+            }
+        });
     });
 }
 
+let resetData=()=>{
+    _.forEach(jsonexport,function(mainObj){
+        mainObj.appended=false;
+    })
 
+}

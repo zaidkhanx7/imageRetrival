@@ -8,6 +8,7 @@ let csvtoJson=()=>{
                 delete Obj[value];
             }
         });
+        Obj.appended=false;
     });
     return data;
 }

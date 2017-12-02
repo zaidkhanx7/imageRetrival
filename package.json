@@ -33,6 +33,7 @@
   },
   "dependencies": {
     "dsv-loader": "^2.0.0",
-    "leven": "^2.1.0"
+    "leven": "^2.1.0",
+    "monkey-opencv": "^1.0.1"
   }
 }

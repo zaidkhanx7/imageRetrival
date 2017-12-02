@@ -34,8 +34,9 @@ window.imageclicked=()=>{
     searchinput.setAttribute("accept","image");
     imgSearch.setAttribute("class","visible");
     imgsearch.setAttribute("class","invisible");
-    idSearch.AddEventListener()
-    console.log("image Clicked!!!!!!!!!!!!!");
+    idSearch.AddEventListener("onchange", function(){
+
+    });
 }
 window.imageSubmitted=()=>{
     console.log("image Submitted !!!");
@@ -86,9 +87,15 @@ let comparison=(stringArr)=>{
         });
         if(comparisonArr.length > 1){
             comparisonArr=comparisonArr.sort(function(a,b){
-                return a.leven > b.leven ;
+                return a.leven - b.leven ;
             });
         }
+        if (comparisonArr.length>4){
+            comparisonArr=comparisonArr.filter(function(value){
+                    return value.leven===0;
+            });
+        }
+        console.log("array",comparisonArr);
         return comparisonArr;
     }else{
         alert("Please enter valid input ");
@@ -98,7 +105,7 @@ let comparison=(stringArr)=>{
 let keyWordSearch=(Arr)=>{
     let imageRenderer=document.getElementById("imageRenderer");
     imageRenderer.innerHTML=" ";
-    for(let i =0; i<=3;i++){
+    for(let i =0; i< Arr.length;i++){
         imageRender(Arr,i);
     }
 }
@@ -111,23 +118,23 @@ let imageRender=(Arr,i)=>{
             let val=value.imageName;
             if(mainObj[val]==="1") {
                 match=match+=1;
-                if(match === arr.length && mainObj.appended !== true){
-                    console.log("mainObj", mainObj)
-                    console.log("inside loop");
-                    mainObj.appended=true;
-                    let img = new Image();
-                    let span=document.createElement('div');
-                    span.innerHTML=mainObj.imagesNames;
-                    img.src = `${window.location}/src/images/${mainObj.imagesNames}.png`;
-                    img.name="text1"
-                    span.setAttribute("class", "imagesdes");
-                    img.setAttribute("class", "images");
-                    imageRenderer.appendChild(span);
-                    span.appendChild(img);
-                }
+            }
+            if(match === arr.length && mainObj.appended !== true){
+                mainObj.appended=true;
+                mainObj.similarity=i;
+                let img = new Image();
+                let span=document.createElement('div');
+                span.innerHTML=`${mainObj.imagesNames}, Difference: ${i}`;
+                img.src = `${window.location}/src/images/${mainObj.imagesNames}.png`;
+                img.name="text1";
+                span.setAttribute("class", "imagesdes");
+                img.setAttribute("class", "images");
+                imageRenderer.appendChild(span);
+                span.appendChild(img);
             }
         });
     });
+
 }
 
 let resetData=()=>{
@@ -136,5 +143,6 @@ let resetData=()=>{
     })
 
 }
+
 
 

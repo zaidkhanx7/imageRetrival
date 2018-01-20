@@ -1,5 +1,5 @@
-# ES6-boilerplate
-Standard ES6 Boilerplate configured with babel, webpack and eslint.
+# Information Retrival
+A basic image retrival app build using levenshian Edit distance Algorithm .  
 
 ## Usage
 * `npm start` to run eslint on watch mode and dev-server at localhost:8080.

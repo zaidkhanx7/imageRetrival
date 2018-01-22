@@ -1,5 +1,8 @@
 # Information Retrival
-A basic image retrival app build using levenshian Edit distance Algorithm .  
+A basic image retrival app build using levenshian Edit distance Algorithm . 
+
+## screenshot of the query from the image Retrival
+![alt text](http://url/to/img.png)
 
 ## Usage
 * `npm start` to run eslint on watch mode and dev-server at localhost:8080.

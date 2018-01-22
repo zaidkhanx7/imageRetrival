@@ -1,7 +1,7 @@
 # Information Retrival
 A basic image retrival app build using levenshian Edit distance Algorithm . 
 
-## screenshot of the query from the image Retrival
+screenshot of the query from the image Retrival project !
 ![alt text](https://github.com/sujilnt/imageRetrival/blob/master/Apple222.png)
 
 ## Usage

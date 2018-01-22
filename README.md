@@ -2,7 +2,7 @@
 A basic image retrival app build using levenshian Edit distance Algorithm . 
 
 ## screenshot of the query from the image Retrival
-![alt text](http://url/to/img.png)
+![alt text](https://github.com/sujilnt/imageRetrival/blob/master/Apple222.png)
 
 ## Usage
 * `npm start` to run eslint on watch mode and dev-server at localhost:8080.
